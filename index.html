@@ -13,17 +13,18 @@
 
 <body>
 
-  <script src="assets/script/library.js"></script>
-
-
-
-  <form name="newBook" action="" onsubmit="addBookToLibrary()">
-    <input type="text" id="name" placeholder="Add book name" name="name" required>
-    <input type="text" id="author" placeholder="Add book author" name="author" required>
-    <input type="text" id="pages" placeholder="Add book pages number" name="pages" required>
-
-    <input type="submit" value="Add Book">
+  
+  <button id="add_new_book_button">Add New Book</button>
+  
+  <form name="newBook" id="newBook" action="" onsubmit="addBookToLibrary()">
+      <input type="text" id="name" placeholder="Add book name" name="name" required>
+      <input type="text" id="author" placeholder="Add book author" name="author" required>
+      <input type="text" id="pages" placeholder="Add book pages number" name="pages" required>
+      
+      <input type="submit" value="Add Book">
   </form>
+  
+  <script src="assets/script/library.js"></script>
 </body>
 
 </html>
