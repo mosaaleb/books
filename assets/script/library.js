@@ -80,8 +80,11 @@ function deleteBook() {
 }
 
 function readBookToggle() {
+    let books = getBooks();
     let index = event.target.dataset.index;
-    myLibrary[index].isRead = !myLibrary[index].isRead;
+    books[index].isRead = !books[index].isRead;
+    localStorage.books = JSON.stringify(books);
+    document.location.reload();
     console.log(myLibrary);
 }
 
