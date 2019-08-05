@@ -36,8 +36,8 @@ function displayBooks() {
             <td>${book.title}</td>
             <td>${book.author}</td>
             <td>${book.pagesNumber}</td>
-            <td> <button class = "book_delete_button" data-index="${index}">Delete</button> </td>
-            <td> <button class = "book_read_button" data-index="${index}">${book.isRead ? "unread" : "read"}</button> </td>
+            <td> <button class = "btn btn-danger book_delete_button" data-index="${index}">Delete</button> </td>
+            <td> <button class = "btn btn-info book_read_button" data-index="${index}">${book.isRead ? "unread" : "read"}</button> </td>
         `;
         table.appendChild(rowBook);
     });

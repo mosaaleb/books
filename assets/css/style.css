@@ -1,4 +1,89 @@
+/* TYPOGRAPHY */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: #001f3f;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+
+
+/* CUSTOM STYLES */
+
+.title {
+  text-align: center;
+}
+
+.container {
+  width: 60%;
+  margin: 4em auto 0 auto;
+}
+
+.books {
+  width: 100%;
+}
+
 .books, tr, td, th{
-  border: 1px solid black;
+  border: 2px solid black;
   border-collapse: collapse;
+  padding: 10px;
+}
+
+.books th {
+  font-size: 1.2rem;
+  font-weight: 600; 
+}
+
+.books tr {
+  text-align: center;
+}
+
+.btn {
+  all: unset;
+  border: 1px solid #007bff;
+  background: #007bff;
+  color: #fff;
+  border-radius: 3px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.btn:active {
+  background: #006ee4;
+}
+
+.btn-danger {
+  background: #dc3545;
+  border: #dc3545;
+  padding: 6px 10px;
+}
+
+.btn-danger:active {
+  background: #c30;
+  border: #c30;
+}
+
+.btn-info {
+  background: #17a2b8;
+  border: #17a2b8;
+  padding: 6px 10px;
+}
+
+.btn-info:active {
+  background: #008b92;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+input[type="text"] {
+  padding: 7px;
 }

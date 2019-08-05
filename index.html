@@ -7,32 +7,39 @@
   <meta name="author" content="">
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <link rel="stylesheet" href="assets/css/reset.css">
   <link href="assets/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 
-  <table id="books">
-    <tr>
-      <th>Book name</th>
-      <th>Book author</th>
-      <th>Book pages numbers</th>
-      <th>Delete button</th>
-      <th>Read status</th>
-    </tr>
-  </table>
+  <h1 class="title">Odin Book Library</h1>
 
-
-  <button id="add_new_book_button">Add New Book</button>
+  <div class="container">
+    <table id="books" class="books">
+      <tr>
+        <th>Book name</th>
+        <th>Book author</th>
+        <th>Book pages numbers</th>
+        <th>Delete button</th>
+        <th>Read status</th>
+      </tr>
+    </table>
   
-  <form name="newBook" id="newBook" action="" onsubmit="addBookToLibrary()">
-      <input type="text" id="name" placeholder="Add book name" name="name" required>
-      <input type="text" id="author" placeholder="Add book author" name="author" required>
-      <input type="text" id="pages" placeholder="Add book pages number" name="pages" required>
-      
-      <input type="submit" value="Add Book">
-  </form>
+    <div class="center">
+      <button id="add_new_book_button" class="btn">Add New Book</button>
+    </div>
+    
+    <div class="center">
+      <form name="newBook" id="newBook" action="" onsubmit="addBookToLibrary()">
+          <input type="text" id="name" placeholder="Book name" name="name" required>
+          <input type="text" id="author" placeholder="Book author" name="author" required>
+          <input type="text" id="pages" placeholder="Book pages number" name="pages" required>
+          
+          <input type="submit" class="btn" value="Add Book">
+      </form>
+    </div>
+  </div>
   
   <script src="assets/script/library.js"></script>
 </body>
