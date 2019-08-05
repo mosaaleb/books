@@ -12,8 +12,9 @@
 </head>
 
 <body>
-
-  <h1 class="title">Odin Book Library</h1>
+  <div class="header">
+    <h1 class="title">Odin Book Library</h1>
+  </div>
 
   <div class="container">
     <table id="books" class="books">
@@ -31,7 +32,7 @@
     </div>
     
     <div class="center">
-      <form name="newBook" id="newBook" action="" onsubmit="addBookToLibrary()">
+      <form name="newBook" id="newBook" action="" onsubmit="addBookToLibrary()" novalidate>
           <input type="text" id="name" placeholder="Book name" name="name" required>
           <input type="text" id="author" placeholder="Book author" name="author" required>
           <input type="text" id="pages" placeholder="Book pages number" name="pages" required>

@@ -87,3 +87,21 @@ h1 {
 input[type="text"] {
   padding: 7px;
 }
+
+/* messages */
+.alert {
+  color: #fff;
+  margin: 0 auto;
+  width: 60%;
+  padding: 2em;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.error { 
+  background-color: #c30;
+}
+
+.success {
+  background-color: #008b92;
+}

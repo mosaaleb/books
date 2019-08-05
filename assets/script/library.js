@@ -13,15 +13,22 @@ function Book(title, pagesNumber, author) {
     this.isRead = false;
 }
 
-
 function addBookToLibrary() {
     let title = document.getElementById("name").value;
     let author = document.getElementById("author").value;
     let pages = document.getElementById("pages").value;
 
+    // check for validation
+    if (title == "" || author == "" || pages == "" ) {
+        showMessage("You need to fill all the fields", "error");
+        event.preventDefault();
+    }
+
+
     let book = new Book(title, author, pages);
     myLibrary.push(book);
     addBook(book);
+    showMessage("You need to fill all the fields", "error");
 }
 
 function displayBooks() {
@@ -108,4 +115,12 @@ function addBook(book) {
     let books = getBooks();
     books.push(book);
     localStorage.books = JSON.stringify(books);
+}
+
+// messages 
+function showMessage(message, className) {
+    let messageContainer = document.createElement('div');
+    messageContainer.className = "alert " + className;
+    messageContainer.innerHTML = message;
+    document.querySelector(".header").appendChild(messageContainer);
 }
