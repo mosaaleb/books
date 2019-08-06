@@ -1,8 +1,8 @@
 "use strict";
 
 let myLibrary = [];
-let addNewBookButton = document.getElementById("add_new_book_button");
-let addBookForm = document.getElementById("newBook");
+const addNewBookButton = document.getElementById("add_new_book_button");
+const addBookForm = document.getElementById("newBook");
 
 addBookForm.style.display = "none";
 
@@ -14,30 +14,34 @@ function Book(title, pagesNumber, author) {
 }
 
 function addBookToLibrary() {
-    let title = document.getElementById("name").value;
-    let author = document.getElementById("author").value;
-    let pages = document.getElementById("pages").value;
+    const title = document.getElementById("name").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
 
     // check for validation
     if (title == "" || author == "" || pages == "" ) {
         showMessage("You need to fill all the fields", "error");
         event.preventDefault();
+    } else {
+        const book = new Book(title, pages, author);
+        myLibrary.push(book);
+        addBook(book);
+        // showMessage("You need to fill all the fields", "error");
+
     }
 
 
-    let book = new Book(title, author, pages);
-    myLibrary.push(book);
-    addBook(book);
-    showMessage("You need to fill all the fields", "error");
 }
 
 function displayBooks() {
-    let books = getBooks();
+    const books = getBooks();
 
     const table = document.getElementById("books");
 
+    let rowBook;
+
     books.forEach(function(book,index) {
-        let rowBook = document.createElement("tr");
+        rowBook = document.createElement("tr");
         
         rowBook.innerHTML += `
             <td>${book.title}</td>
@@ -53,14 +57,14 @@ function displayBooks() {
 
 displayBooks();
 
-let bookDeleteButtons = document.querySelectorAll(".book_delete_button");
-let bookReadButtons = document.querySelectorAll(".book_read_button");
+const bookDeleteButtons = document.querySelectorAll(".book_delete_button");
+const bookReadButtons = document.querySelectorAll(".book_read_button");
 
 addNewBookButton.addEventListener( "click", renderAddBookForm );
 
 function renderAddBookForm() {
     
-    let displayStatus  = addBookForm.style.display
+    const displayStatus  = addBookForm.style.display
 
     if (displayStatus == "none") {
         addBookForm.style.display = "block";
@@ -78,8 +82,8 @@ bookReadButtons.forEach((button) => {
 })
 
 function deleteBook() {
-    let books = getBooks();
-    let index = event.target.dataset.index;
+    const books = getBooks();
+    const index = event.target.dataset.index;
     books.splice(index, 1);
     // console.log(myLibrary);
     localStorage.books = JSON.stringify(books);
@@ -87,8 +91,8 @@ function deleteBook() {
 }
 
 function readBookToggle() {
-    let books = getBooks();
-    let index = event.target.dataset.index;
+    const books = getBooks();
+    const index = event.target.dataset.index;
     books[index].isRead = !books[index].isRead;
     localStorage.books = JSON.stringify(books);
     document.location.reload();
@@ -112,14 +116,14 @@ function getBooks() {
 
 
 function addBook(book) {
-    let books = getBooks();
+    const books = getBooks();
     books.push(book);
     localStorage.books = JSON.stringify(books);
 }
 
 // messages 
 function showMessage(message, className) {
-    let messageContainer = document.createElement('div');
+    const messageContainer = document.createElement('div');
     messageContainer.className = "alert " + className;
     messageContainer.innerHTML = message;
     document.querySelector(".header").appendChild(messageContainer);
