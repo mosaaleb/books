@@ -29,50 +29,50 @@ class Book {
   }
   
   //---------------------------DOM CODE-----------------------//
-  class UserInterface {
-    static renderBooks(books) {
-      const table = document.getElementById("books");
-      while (table.childElementCount > 1 ) {
-        table.removeChild(table.lastChild);
-      }
-      let rowBook;
-      books.forEach((book, index) => this.renderBook(book, index));
-    }
-    static renderBook(book, index) {
-      const table = document.getElementById("books");
-      let rowBook = document.createElement("tr");
-        
-      rowBook.innerHTML += `
-          <td>${book.title}</td>
-          <td>${book.author}</td>
-          <td>${book.pagesNumber}</td>
-          <td> <button class = "btn btn-danger book_delete_button" data-index="${index}">Delete</button> </td>
-          <td> <button class = "btn btn-info book_read_button" data-index="${index}">${book.isRead ? "unread" : "read"}</button> </td>
-      `;
-      
-      table.appendChild(rowBook);
 
-      // ADD EVENT LISTENERS
-      const bookDeleteButtons = document.querySelectorAll(".book_delete_button");
-      const bookReadButtons = document.querySelectorAll(".book_read_button");
-      bookDeleteButtons.forEach((button)=>{
-        button.addEventListener("click", deleteBook);
-      })
-    
-      bookReadButtons.forEach((button) => {
-        button.addEventListener("click", readToggle);
-      })
+  function renderBooks(books) {
+    const table = document.getElementById("books");
+    while (table.childElementCount > 1 ) {
+      table.removeChild(table.lastChild);
     }
-    static AddBookToggle() {
-      const addBookForm = document.getElementById("newBook");
-      const displayStatus  = addBookForm.style.display
-      if (displayStatus == "none") {
-          addBookForm.style.display = "block";
-      } else {
-          addBookForm.style.display = "none";
-      }
+    let rowBook;
+    books.forEach((book, index) => this.renderBook(book, index));
+  }
+  function renderBook(book, index) {
+    const table = document.getElementById("books");
+    let rowBook = document.createElement("tr");
+      
+    rowBook.innerHTML += `
+        <td>${book.title}</td>
+        <td>${book.author}</td>
+        <td>${book.pagesNumber}</td>
+        <td> <button class = "btn btn-danger book_delete_button" data-index="${index}">Delete</button> </td>
+        <td> <button class = "btn btn-info book_read_button" data-index="${index}">${book.isRead ? "unread" : "read"}</button> </td>
+    `;
+    
+    table.appendChild(rowBook);
+
+    // ADD EVENT LISTENERS
+    const bookDeleteButtons = document.querySelectorAll(".book_delete_button");
+    const bookReadButtons = document.querySelectorAll(".book_read_button");
+    bookDeleteButtons.forEach((button)=>{
+      button.addEventListener("click", deleteBook);
+    })
+  
+    bookReadButtons.forEach((button) => {
+      button.addEventListener("click", readToggle);
+    })
+  }
+  function AddBookToggle() {
+    const addBookForm = document.getElementById("newBook");
+    const displayStatus  = addBookForm.style.display
+    if (displayStatus == "none") {
+        addBookForm.style.display = "block";
+    } else {
+        addBookForm.style.display = "none";
     }
   }
+
   
   //---------------------LOCALSTORAGE CODE--------------------//
   
@@ -95,12 +95,12 @@ class Book {
   
   //-----------------------CONTROLLER CODE--------------------//
   function main() {
-    UserInterface.AddBookToggle();
+    AddBookToggle();
     const addBook = document.getElementById("add_new_book_button")
-    addBook.addEventListener("click", UserInterface.AddBookToggle);
+    addBook.addEventListener("click", AddBookToggle);
   
     const library = deserialize();
-    UserInterface.renderBooks(library.books);  
+    renderBooks(library.books);  
   }
   function deleteBook() {
     const index = event.target.dataset.index;
@@ -110,7 +110,7 @@ class Book {
     serialize(library.books);
   
     // HANDLE UI
-    UserInterface.renderBooks(library.books);
+    renderBooks(library.books);
   }
   function readToggle() {
     const index = event.target.dataset.index;
@@ -120,7 +120,7 @@ class Book {
     serialize(library.books);
   
     // HANDLE UI
-    UserInterface.renderBooks(library.books);
+    renderBooks(library.books);
   }
   function addBookToLibrary() {
     event.preventDefault();
@@ -141,7 +141,7 @@ class Book {
       serialize(library.books);
   
       // HANDLE UI
-      UserInterface.renderBook(book, library.books.length - 1);
+      renderBook(book, library.books.length - 1);
     }
   
     // Reset form fields
