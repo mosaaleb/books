@@ -10,7 +10,7 @@ class Book {
       this.isRead = !this.isRead;
     }
     info() {
-    let info = `${this.title} by ${this.author}, ${this.pagesNumber} pages, `;
+    const info = `${this.title} by ${this.author}, ${this.pagesNumber} pages, `;
     return (info + (this.isRead ? "read" : "not read yet"));
     }
   }
@@ -38,7 +38,6 @@ class Book {
       let rowBook;
       books.forEach((book, index) => this.renderBook(book, index));
     }
-
     static renderBook(book, index) {
       const table = document.getElementById("books");
       let rowBook = document.createElement("tr");
@@ -64,7 +63,6 @@ class Book {
         button.addEventListener("click", readToggle);
       })
     }
-
     static AddBookToggle() {
       const addBookForm = document.getElementById("newBook");
       const displayStatus  = addBookForm.style.display
@@ -151,7 +149,6 @@ class Book {
     document.getElementById("author").value = "";
     document.getElementById("pages").value = "";
   }
-  
   function showMessage(message, className) {
     const messageContainer = document.createElement('div');
     messageContainer.className = "alert " + className;
