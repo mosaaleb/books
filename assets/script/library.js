@@ -142,6 +142,7 @@ class Book {
   
       // HANDLE UI
       renderBook(book, library.books.length - 1);
+      AddBookToggle();
     }
   
     // Reset form fields
